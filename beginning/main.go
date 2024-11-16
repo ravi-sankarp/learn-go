@@ -6,5 +6,6 @@ func main() {
 	// arrays()
 	// Run()
 	// FibTest()
-	TestMethod()
+	// TestMethod()
+	Interfaces()
 }

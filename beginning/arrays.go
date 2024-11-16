@@ -10,3 +10,7 @@ func arrays() {
 		fmt.Printf("2**%d = %d\n", i, v)
 	}
 }
+
+func main() {
+	arrays()
+}

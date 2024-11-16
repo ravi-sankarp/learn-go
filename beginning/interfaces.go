@@ -1,22 +1,28 @@
 package main
 
-import "fmt"
+import (
+	"encoding/json"
+	"fmt"
+	"time"
+)
 
 type I interface {
-	Print()
+	ToJson() string
 }
 
-type T struct {
-	S string
+type Article struct {
+	Id        int
+	Title     string
+	CreatedOn time.Time
 }
 
-// This method means type T implements the interface I,
-// but we don't need to explicitly declare that it does so.
-func (t T) Print() {
-	fmt.Println(t.S)
+func (article *Article) ToJson() string {
+	js, _ := json.Marshal(article)
+	return string(js)
 }
 
-func main() {
-	var i I = T{"hello"}
-	i.Print()
+func Interfaces() {
+	var updater I = &Article{1, "Test", time.Now()}
+    
+    fmt.Println(updater.ToJson())
 }
